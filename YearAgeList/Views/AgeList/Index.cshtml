@@ -1,0 +1,31 @@
+﻿@model IEnumerable<YearAgeList.Models.Age>
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<table class="table">
+    <tr>
+        <th>年齢</th>
+        <th>西暦</th>
+        <th>和暦</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.ToString()
+        </td>
+        <td>
+            @item.ToCommonEraString()
+        </td>
+        <td>
+            @item.ToJapaneseCalendarString()
+        </td>
+    </tr>
+}
+
+</table>
