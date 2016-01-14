@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace YearAgeList.Models
 {
     public class DateRange
     {
-        private readonly string separate = "～";
         private readonly CultureInfo culture = new CultureInfo("ja-JP", false);
         private readonly JapaneseCalendar japaneseCalendar = new JapaneseCalendar();
 
@@ -30,14 +25,14 @@ namespace YearAgeList.Models
             this.culture.DateTimeFormat.Calendar = this.japaneseCalendar;
         }
 
-        public string ToJapaneseCalendarString()
+        public string ToJapaneseCalendarString(string separate = "～")
         {
-            var start = this.Start.ToString("ggy年MM月dd日", culture);
-            var end = this.End.ToString("ggy年MM月dd日", culture);
+            var start = this.Start.ToString("ggyy年MM月dd日", culture);
+            var end = this.End.ToString("ggyy年MM月dd日", culture);
             return $"{start}{separate}{end}";
         }
 
-        public string ToCommonEraString()
+        public string ToCommonEraString(string separate = "～")
         {
             var start = this.Start.ToString("yyyy年MM月dd日");
             var end = this.End.ToString("yyyy年MM月dd日");

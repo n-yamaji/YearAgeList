@@ -25,14 +25,14 @@ namespace YearAgeList.Models
             return this.number.ToString();
         }
 
-        public string ToJapaneseCalendarString()
+        public string ToJapaneseCalendarString(string separate = "～")
         {
-            return this.BirthRange.ToJapaneseCalendarString();
+            return this.BirthRange.ToJapaneseCalendarString(separate);
         }
 
-        public string ToCommonEraString()
+        public string ToCommonEraString(string separate = "～")
         {
-            return this.BirthRange.ToCommonEraString();
+            return this.BirthRange.ToCommonEraString(separate);
         }
     }
 }
